@@ -1,0 +1,7 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+torch==2.4.1+cpu
+torchvision==0.19.1+cpu
+fastapi[standard]>=0.115.0
+pydantic-settings>=2.5.2
+ultralytics>=8.3.1
