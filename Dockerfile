@@ -12,6 +12,6 @@ COPY pyproject.toml pyproject.toml
 COPY uv.lock uv.lock
 
 ENV PIP_INDEX_URL=https://download.pytorch.org/whl/cpu
-RUN uv sync --frozen
+RUN uv sync --frozen --no-dev --verbose
 
 CMD uv run fastapi run src/main.py --host 0.0.0.0 --port ${PORT}
