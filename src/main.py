@@ -91,7 +91,7 @@ def annotate_pedestrians(
 def get_model_info():
     data = {
         "model_name": "Pedestrian detection",
-        "model_arquitecture": "yolov8n",
+        "model_arquitecture": SETTINGS.yolo_version,
         "classes": ["person"],
         "input_type": "image",
     }
