@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     name: python
     runs-on: ubuntu-latest
 
@@ -19,10 +18,24 @@ jobs:
         uses: astral-sh/setup-uv@v2
 
       - name: Set up Python
-        run: uv python install
+        run: uv python install 3.11
+
+      - name: Cache uv dependencies
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: ${{ runner.os }}-uv-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-uv-
 
       - name: Install the project
         run: uv sync --all-extras --dev
+
+      - name: Install ruff explicitly
+        run: uv pip install ruff
+
+      - name: Verify ruff installation
+        run: uv run ruff --version
 
       - name: Check format
         run: uv run ruff check
