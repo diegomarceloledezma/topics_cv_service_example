@@ -5,17 +5,18 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "torch==2.4.1+cpu",
-    "torchvision==0.19.1+cpu",
+    "torch==2.4.1",
+    "torchvision==0.19.1",
     "fastapi[standard]>=0.115.0",
     "pydantic-settings>=2.5.2",
     "ultralytics>=8.3.1",
 ]
 
-[tool.uv]
-extra-index-url = ["https://download.pytorch.org/whl/cpu"]
-dev-dependencies = [
-    "lark>=1.2.2",
-    "pytest>=8.3.3",
-    "ruff>=0.6.8",
-]
+[tool.uv.sources]
+torch = { index = "pytorch" }
+torchvision = { index = "pytorch" }
+
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
