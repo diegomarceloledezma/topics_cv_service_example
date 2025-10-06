@@ -7,7 +7,7 @@ class Settings(BaseSettings):
 
     api_name: str = "Pedestrian Detection service"
     revision: str = "local"
-    yolo_version: str = "yolov8n.pt"
+    yolo_version: str = "yolo11n.pt"
     log_level: str = "DEBUG"
 
 

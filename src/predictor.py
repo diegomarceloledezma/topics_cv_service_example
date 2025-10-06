@@ -19,7 +19,7 @@ class PedestrianDetector:
         #
 
         indexes = [
-            i for i in range(len(labels)) if labels[i] in [0, 15, 16]
+            i for i in range(len(labels)) if labels[i] in [0]
         ]  # 0 = "person"
         boxes = [
             [int(v) for v in box]
